@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+
+
+      <!-- Navigation bar -->
+      <div class="">
+        <ul class="nav justify-content-end">
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+          </li>
+        </ul>
+      </div>
+      <!-- End of navigation bar div -->
+
+
+
+      <!-- Search box and utility buttons div -->
+      <div class="" style="background:#f8f9fa; overflow:hidden; margin-top:50px; border:1px solid #dee2e6; margin-bottom:50px; border-radius:4px;">
+        <!-- Search form div -->
+        <div class="" style="width:400px; float:left;">
+          <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" style="width:300px;" placeholder="Search" autocomplete="off" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+        <!-- End of search form div -->
+
+        <!-- Utility button div -->
+        <div class="" style="width:300px; float:right; text-align:right;">
+          <button type="button" class="btn btn-info">Add</button>
+          <button type="button" class="btn btn-info">Import</button>
+          <button type="button" class="btn btn-success">Download</button>
+        </div>
+        <!-- End of utility button div -->
+      </div>
+
+
+      <!-- ASIN result div -->
+      <div class="" style=" ">
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Features</th>
+              <th scope="col">Main ASIN</th>
+              <th scope="col">Relatted ASIN 1</th>
+              <th scope="col">Relatted ASIN 2</th>
+              <th scope="col">Relatted ASIN 3</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">ASIN</th>
+              <td>----</td>
+              <td>----</td>
+              <td>----</td>
+              <td>----</td>
+            </tr>
+            <tr>
+              <th scope="row">Site</th>
+              <td>----</td>
+              <td>----</td>
+              <td>----</td>
+              <td>----</td>
+            </tr>
+            <tr>
+              <th scope="row">Price</th>
+              <td>----</td>
+              <td>----</td>
+              <td>----</td>
+              <td>----</td>
+            </tr>
+            <tr>
+              <th scope="row">Customer Reviews</th>
+              <td>----</td>
+              <td>----</td>
+              <td>----</td>
+              <td>----</td>
+            </tr>
+            <tr>
+              <th scope="row">Total Rating</th>
+              <td>----</td>
+              <td>----</td>
+              <td>----</td>
+              <td>----</td>
+            </tr>
+            <tr>
+              <th scope="row">Rank</th>
+              <td>----</td>
+              <td>----</td>
+              <td>----</td>
+              <td>----</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- End of asin result div -->
+
+
+    </div>
+
+
+
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
