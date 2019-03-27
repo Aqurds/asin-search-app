@@ -4,6 +4,9 @@
     <meta charset="utf-8">
     <title>ASIN search app</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style media="screen">
+
+    </style>
   </head>
   <body>
     <div class="container">
@@ -34,8 +37,8 @@
 
         <!-- Utility button div -->
         <div class="" style="width:300px; float:right; text-align:right;">
-          <button type="button" class="btn btn-info">Add</button>
-          <button type="button" class="btn btn-info">Import</button>
+          <button type="button" class="btn btn-info" id="add_asin_manually">Add</button>
+          <button type="button" class="btn btn-info" id="add_asin_in_batch">Upload</button>
           <button type="button" class="btn btn-success">Download</button>
         </div>
         <!-- End of utility button div -->
@@ -53,22 +56,37 @@
                 Related ASIN 1
                 <span id="add_asin_modal_activation_button_one" style="font-weight:bold; color:red; font-size:24px; position:absolute; top: 9px; right: 9px; background: #dee2e6; width: 30px; height: 30px; text-align: center; line-height: 26px; cursor:pointer;">
                   +
+                  <form id="add_related_asin_form_one" class="" action="" method="post" style="width:200px; height:50px; background:#dee2e6; position:relative; top:-35px; left:-170px; z-index:999; box-shadow:0px 0px 5px rgba(0,0,0,.7); display:none;">
+                    <input type="text" name="" value="" placeholder="Related ASIN" maxlength="10" style="width:128px; height:25px; border:0px; background:#ffffff; font-size:14px; text-align:center; margin-top:12px;">
+                    <input type="submit" name="" value="Add" style="width:40px; height:25px; border:0px; background:#17a2b8; font-size:14px; line-height:23px; color:#ffffff">
+                  </form>
                 </span>
               </th>
               <th scope="col" style="position:relative;" class="asin_three">
                 Related ASIN 2
                 <span id="add_asin_modal_activation_button_two" style="font-weight:bold; color:red; font-size:24px; position:absolute; top: 9px; right: 9px; background: #dee2e6; width: 30px; height: 30px; text-align: center; line-height: 26px; cursor:pointer;">
                   +
+                  <form id="add_related_asin_form_two" class="" action="" method="post" style="width:200px; height:50px; background:#dee2e6; position:relative; top:-35px; left:-170px; z-index:999; box-shadow:0px 0px 5px rgba(0,0,0,.7); display:none;">
+                    <input type="text" name="" value="" placeholder="Related ASIN" maxlength="10" style="width:128px; height:25px; border:0px; background:#ffffff; font-size:14px; text-align:center; margin-top:12px;">
+                    <input type="submit" name="" value="Add" style="width:40px; height:25px; border:0px; background:#17a2b8; font-size:14px; line-height:23px; color:#ffffff">
+                  </form>
                 </span>
               </th>
               <th scope="col" style="position:relative;" class="asin_four">
                 Related ASIN 3
                 <span id="add_asin_modal_activation_button_three" style="font-weight:bold; color:red; font-size:24px; position:absolute; top: 9px; right: 9px; background: #dee2e6; width: 30px; height: 30px; text-align: center; line-height: 26px; cursor:pointer;">
                   +
+                  <form id="add_related_asin_form_three" class="" action="" method="post" style="width:200px; height:50px; background:#dee2e6; position:relative; top:-35px; left:-170px; z-index:999; box-shadow:0px 0px 5px rgba(0,0,0,.7); display:none;">
+                    <input type="text" name="" value="" placeholder="Related ASIN" maxlength="10" style="width:128px; height:25px; border:0px; background:#ffffff; font-size:14px; text-align:center; margin-top:12px;">
+                    <input type="submit" name="" value="Add" style="width:40px; height:25px; border:0px; background:#17a2b8; font-size:14px; line-height:23px; color:#ffffff">
+                  </form>
                 </span>
               </th>
             </tr>
           </thead>
+
+
+
           <tbody>
             <tr>
               <th scope="row">ASIN</th>
@@ -77,53 +95,92 @@
               </td>
               <td class="asin_two" style="position:relative; text-align:center;">
                 B00I1KW2FW
+
+                <!-- Delete button for related asin -->
                 <span id="delete_asin_button_one" style="font-weight:bold; color:red; font-size:16px; position:absolute; top: 14px; left: 9px; background: #dee2e6; width: 20px; height: 20px; text-align: center; line-height: 19px; cursor:pointer;">
                   X
+                  <span id="delete_alt_text_one" style="width:30px; height:10px; background:red; color:#ffffff; padding:0 5px; font-size:12px; position:relative; left:-12px; top:-40px; display:none; line-height:10px;">
+                    Delete
+                  </span>
+                </span>
+
+                <!-- Edit button for related asin -->
+                <span id="edit_asin_button_one" style="font-weight:bold; color:green; font-size:16px; position:absolute; top: 14px; right: 9px; background: #dee2e6; width: 20px; height: 20px; text-align: center; line-height: 19px; cursor:pointer;">
+                  E
+                  <span id="edit_alt_text_one" style="width:30px; height:10px; background:green; color:#ffffff; padding:0 5px; font-size:12px; position:relative; right:6px; top:-40px; display:none; line-height:10px;">
+                    Edit
+                  </span>
                 </span>
               </td>
               <td class="asin_three" style="position:relative; text-align:center;">
                 B01C89GCHU
+
+                <!-- Delete button for related asin -->
                 <span id="delete_asin_button_two" style="font-weight:bold; color:red; font-size:16px; position:absolute; top: 14px; left: 9px; background: #dee2e6; width: 20px; height: 20px; text-align: center; line-height: 19px; cursor:pointer;">
                   X
+                  <span id="delete_alt_text_two" style="width:30px; height:10px; background:red; color:#ffffff; padding:0 5px; font-size:12px; position:relative; left:-12px; top:-40px; display:none; line-height:10px;">
+                    Delete
+                  </span>
+                </span>
+
+                <!-- Edit button for related asin -->
+                <span id="edit_asin_button_two" style="font-weight:bold; color:green; font-size:16px; position:absolute; top: 14px; right: 9px; background: #dee2e6; width: 20px; height: 20px; text-align: center; line-height: 19px; cursor:pointer;">
+                  E
+                  <span id="edit_alt_text_two" style="width:30px; height:10px; background:green; color:#ffffff; padding:0 5px; font-size:12px; position:relative; right:6px; top:-40px; display:none; line-height:10px;">
+                    Edit
+                  </span>
                 </span>
               </td>
               <td class="asin_four" style="position:relative; text-align:center;">
                 B00E964EM6
+
+                <!-- Delete button for related asin -->
                 <span id="delete_asin_button_three" style="font-weight:bold; color:red; font-size:16px; position:absolute; top: 14px; left: 9px; background: #dee2e6; width: 20px; height: 20px; text-align: center; line-height: 19px; cursor:pointer;">
                   X
+                  <span id="delete_alt_text_three" style="width:30px; height:10px; background:red; color:#ffffff; padding:0 5px; font-size:12px; position:relative; left:-12px; top:-40px; display:none; line-height:10px;">
+                    Delete
+                  </span>
+                </span>
+
+                <!-- Edit button for related asin -->
+                <span id="edit_asin_button_three" style="font-weight:bold; color:green; font-size:16px; position:absolute; top: 14px; right: 9px; background: #dee2e6; width: 20px; height: 20px; text-align: center; line-height: 19px; cursor:pointer;">
+                  E
+                  <span id="edit_alt_text_three" style="width:30px; height:10px; background:green; color:#ffffff; padding:0 5px; font-size:12px; position:relative; right:6px; top:-40px; display:none; line-height:10px;">
+                    Edit
+                  </span>
                 </span>
               </td>
             </tr>
-            <tr>
-              <th scope="row">Site</th>
+            <tr style="text-align:center;">
+              <th scope="row" style="text-align:left;">Site</th>
               <td class="asin_one">----</td>
               <td class="asin_two">----</td>
               <td class="asin_three">----</td>
               <td class="asin_four">----</td>
             </tr>
-            <tr>
-              <th scope="row">Price</th>
+            <tr style="text-align:center;">
+              <th scope="row" style="text-align:left;">Price</th>
               <td class="asin_one">----</td>
               <td class="asin_two">----</td>
               <td class="asin_three">----</td>
               <td class="asin_four">----</td>
             </tr>
-            <tr>
-              <th scope="row">Customer Reviews</th>
+            <tr style="text-align:center;">
+              <th scope="row" style="text-align:left;">Customer Reviews</th>
               <td class="asin_one">----</td>
               <td class="asin_two">----</td>
               <td class="asin_three">----</td>
               <td class="asin_four">----</td>
             </tr>
-            <tr>
-              <th scope="row">Total Rating</th>
+            <tr style="text-align:center;">
+              <th scope="row" style="text-align:left;">Total Rating</th>
               <td class="asin_one">----</td>
               <td class="asin_two">----</td>
               <td class="asin_three">----</td>
               <td class="asin_four">----</td>
             </tr>
-            <tr>
-              <th scope="row">Rank</th>
+            <tr style="text-align:center;">
+              <th scope="row" style="text-align:left;">Rank</th>
               <td class="asin_one">----</td>
               <td class="asin_two">----</td>
               <td class="asin_three">----</td>
@@ -137,21 +194,28 @@
       <!-- End of asin result div -->
 
       <!-- add asin modal box, will pop up when the add (+) button clicked -->
-      <div class="" id="add_asin_modal" style="position:absolute; top:0px; left:0px; overflow: visible; background:rgba(0,0,0,.5); width:100%; height:100%; display:none;">
-        <form class="" action="" method="post" style="margin-left:-455px; margin-top:-100px; width:930px; height:auto; background:#dee2e6; position:relative; top:50%; left:50%; padding:10px;">
+      <div class="" id="add_asin_modal_one" style="position:absolute; top:0px; left:0px; overflow: visible; background:rgba(0,0,0,.7); width:100%; height:100%; display:none;">
+        <form class="" action="" method="post" style="margin-left:-455px; margin-top:-100px; width:930px; height:auto; background:#dee2e6; position:relative; top:50%; left:50%; padding:10px; padding-top:30px; padding-bottom:30px;">
           <input type="text" name="" value="" placeholder="MAIN" style="float:left;">
           <input type="text" name="" value="" placeholder="SITE" style="float:left;">
           <input type="text" name="" value="" placeholder="RELATED 1" style="float:left;">
           <input type="text" name="" value="" placeholder="RELATED 2" style="float:left;">
           <input type="text" name="" value="" placeholder="RELATED 3" style="float:left;">
-          <input type="submit" name="" value="ADD" style="width:200px; height:30px; background:#17a2b8; border:1px solid #17a2b8; margin:10px 354px; color:#ffffff;">
+          <input type="submit" name="" value="ADD" style="width:200px; height:30px; background:#17a2b8; border:1px solid #17a2b8; margin:30px 354px 0px; color:#ffffff;">
         </form>
-        <form class="" action="#" method="post" style="margin-left:-455px; margin-top:0px; width:930px; height:auto; background:#dee2e6; position:relative; top:50%; left:50%; text-align:center; padding:10px;">
+        <span id="add_asin_modal_close_button_one" style="position:absolute; top:0px; right:20px; color:#ffffff; font-weight:bold; font-size:32px; cursor:pointer;">X</span>
+      </div>
+
+
+
+      <!-- add asin modal box, will pop up when the 'Upload' button clicked -->
+      <div class="" id="add_asin_modal_two" style="position:absolute; top:0px; left:0px; overflow: visible; background:rgba(0,0,0,.7); width:100%; height:100%; display:none;">
+        <form class="" action="#" method="post" style="margin-left:-455px; margin-top:-100px; width:930px; height:auto; background:#dee2e6; position:relative; top:50%; left:50%; text-align:center; padding:10px; padding-top:30px; padding-bottom:30px;">
           <p>Want to upload ASIN in batch? Upload CSV file here-</p>
           <input type="file" id="asin_csv_file">
-          <input type="submit" name="" value="Add CSV">
+          <input type="submit" name="" value="Upload CSV">
         </form>
-        <span id="add_asin_modal_close_button" style="position:absolute; top:0px; right:20px; color:#ffffff; font-weight:bold; font-size:32px; cursor:pointer;">X</span>
+        <span id="add_asin_modal_close_button_two" style="position:absolute; top:0px; right:20px; color:#ffffff; font-weight:bold; font-size:32px; cursor:pointer;">X</span>
       </div>
 
 
@@ -167,21 +231,88 @@
   <script type="text/javascript">
   $(document).ready(function(){
 
-      // Show the add_asin_modal popup when click on add button
+      // Show the add_input_form for adding related asin when click on "+" button in related asin field
       $("#add_asin_modal_activation_button_one").click(function(){
-        $("#add_asin_modal").show();
-      });
+        $("#add_related_asin_form_one").show()
+      })
       $("#add_asin_modal_activation_button_two").click(function(){
-        $("#add_asin_modal").show();
-      });
+        $("#add_related_asin_form_two").show()
+      })
       $("#add_asin_modal_activation_button_three").click(function(){
-        $("#add_asin_modal").show();
-      });
+        $("#add_related_asin_form_three").show()
+      })
+
+
+
+      // Show the add_asin_modal popup when click on add button
+      $("#add_asin_manually").click(function(){
+        $("#add_asin_modal_one").show();
+      })
+      $("#add_asin_in_batch").click(function(){
+        $("#add_asin_modal_two").show();
+      })
 
       // Hide the add_asin_modal by clicking on the "X" button
-      $("#add_asin_modal_close_button").click(function(){
-        $("#add_asin_modal").hide();
+      $("#add_asin_modal_close_button_one").click(function(){
+        $("#add_asin_modal_one").hide();
       })
+      $("#add_asin_modal_close_button_two").click(function(){
+        $("#add_asin_modal_two").hide();
+      })
+
+      // Show the alter text for delete related asin
+      $("#delete_asin_button_one").hover(
+        function(){
+          $("#delete_alt_text_one").show()
+        },
+        function(){
+          $("#delete_alt_text_one").hide()
+        }
+        )
+      $("#delete_asin_button_two").hover(
+        function(){
+          $("#delete_alt_text_two").show()
+        },
+        function(){
+          $("#delete_alt_text_two").hide()
+        }
+        )
+      $("#delete_asin_button_three").hover(
+        function(){
+          $("#delete_alt_text_three").show()
+        },
+        function(){
+          $("#delete_alt_text_three").hide()
+        }
+        )
+
+
+      // Show the alter text for edit related asin
+      $("#edit_asin_button_one").hover(
+        function(){
+          $("#edit_alt_text_one").show()
+        },
+        function(){
+          $("#edit_alt_text_one").hide()
+        }
+        )
+      $("#edit_asin_button_two").hover(
+        function(){
+          $("#edit_alt_text_two").show()
+        },
+        function(){
+          $("#edit_alt_text_two").hide()
+        }
+        )
+      $("#edit_asin_button_three").hover(
+        function(){
+          $("#edit_alt_text_three").show()
+        },
+        function(){
+          $("#edit_alt_text_three").hide()
+        }
+        )
+
 
       // Delete the related asin when click on the "X" button in each asin
       $("#delete_asin_button_one").click(function(){
@@ -202,6 +333,13 @@
         $("."+ parent_class).hide()
         // $(td.parent_class).hide()
       })
+
+
+
+      // Disable the "+" button in related Asin field when it's has value
+      // this will be done by Flask value, like this:
+      //   if the related asin has value, then i will show the field without "+" button
+      //   and if the asin related asin doesn't has any value, then i will show empty field with the "+" button
     });
   </script>
   </body>
