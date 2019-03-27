@@ -43,64 +43,116 @@
 
 
       <!-- ASIN result div -->
-      <div class="" style=" ">
+      <div class="" style="position:relative; overflow: visible;">
         <table class="table table-bordered table-hover">
           <thead>
             <tr>
-              <th scope="col">Features</th>
+              <th scope="col"></th>
               <th scope="col">Main ASIN</th>
-              <th scope="col">Related ASIN 1</th>
-              <th scope="col">Related ASIN 2</th>
-              <th scope="col">Related ASIN 3</th>
+              <th scope="col" style="position:relative;" class="asin_two">
+                Related ASIN 1
+                <span id="add_asin_modal_activation_button_one" style="font-weight:bold; color:red; font-size:24px; position:absolute; top: 9px; right: 9px; background: #dee2e6; width: 30px; height: 30px; text-align: center; line-height: 26px; cursor:pointer;">
+                  +
+                </span>
+              </th>
+              <th scope="col" style="position:relative;" class="asin_three">
+                Related ASIN 2
+                <span id="add_asin_modal_activation_button_two" style="font-weight:bold; color:red; font-size:24px; position:absolute; top: 9px; right: 9px; background: #dee2e6; width: 30px; height: 30px; text-align: center; line-height: 26px; cursor:pointer;">
+                  +
+                </span>
+              </th>
+              <th scope="col" style="position:relative;" class="asin_four">
+                Related ASIN 3
+                <span id="add_asin_modal_activation_button_three" style="font-weight:bold; color:red; font-size:24px; position:absolute; top: 9px; right: 9px; background: #dee2e6; width: 30px; height: 30px; text-align: center; line-height: 26px; cursor:pointer;">
+                  +
+                </span>
+              </th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <th scope="row">ASIN</th>
-              <td>----</td>
-              <td>----</td>
-              <td>----</td>
-              <td>----</td>
+              <td class="asin_one" style="position:relative; text-align:center;">
+                B01NAWKYZ0
+              </td>
+              <td class="asin_two" style="position:relative; text-align:center;">
+                B00I1KW2FW
+                <span id="delete_asin_button_one" style="font-weight:bold; color:red; font-size:16px; position:absolute; top: 14px; left: 9px; background: #dee2e6; width: 20px; height: 20px; text-align: center; line-height: 19px; cursor:pointer;">
+                  X
+                </span>
+              </td>
+              <td class="asin_three" style="position:relative; text-align:center;">
+                B01C89GCHU
+                <span id="delete_asin_button_two" style="font-weight:bold; color:red; font-size:16px; position:absolute; top: 14px; left: 9px; background: #dee2e6; width: 20px; height: 20px; text-align: center; line-height: 19px; cursor:pointer;">
+                  X
+                </span>
+              </td>
+              <td class="asin_four" style="position:relative; text-align:center;">
+                B00E964EM6
+                <span id="delete_asin_button_three" style="font-weight:bold; color:red; font-size:16px; position:absolute; top: 14px; left: 9px; background: #dee2e6; width: 20px; height: 20px; text-align: center; line-height: 19px; cursor:pointer;">
+                  X
+                </span>
+              </td>
             </tr>
             <tr>
               <th scope="row">Site</th>
-              <td>----</td>
-              <td>----</td>
-              <td>----</td>
-              <td>----</td>
+              <td class="asin_one">----</td>
+              <td class="asin_two">----</td>
+              <td class="asin_three">----</td>
+              <td class="asin_four">----</td>
             </tr>
             <tr>
               <th scope="row">Price</th>
-              <td>----</td>
-              <td>----</td>
-              <td>----</td>
-              <td>----</td>
+              <td class="asin_one">----</td>
+              <td class="asin_two">----</td>
+              <td class="asin_three">----</td>
+              <td class="asin_four">----</td>
             </tr>
             <tr>
               <th scope="row">Customer Reviews</th>
-              <td>----</td>
-              <td>----</td>
-              <td>----</td>
-              <td>----</td>
+              <td class="asin_one">----</td>
+              <td class="asin_two">----</td>
+              <td class="asin_three">----</td>
+              <td class="asin_four">----</td>
             </tr>
             <tr>
               <th scope="row">Total Rating</th>
-              <td>----</td>
-              <td>----</td>
-              <td>----</td>
-              <td>----</td>
+              <td class="asin_one">----</td>
+              <td class="asin_two">----</td>
+              <td class="asin_three">----</td>
+              <td class="asin_four">----</td>
             </tr>
             <tr>
               <th scope="row">Rank</th>
-              <td>----</td>
-              <td>----</td>
-              <td>----</td>
-              <td>----</td>
+              <td class="asin_one">----</td>
+              <td class="asin_two">----</td>
+              <td class="asin_three">----</td>
+              <td class="asin_four">----</td>
             </tr>
           </tbody>
         </table>
+
+
       </div>
       <!-- End of asin result div -->
+
+      <!-- add asin modal box, will pop up when the add (+) button clicked -->
+      <div class="" id="add_asin_modal" style="position:absolute; top:0px; left:0px; overflow: visible; background:rgba(0,0,0,.5); width:100%; height:100%; display:none;">
+        <form class="" action="" method="post" style="margin-left:-455px; margin-top:-100px; width:930px; height:auto; background:#dee2e6; position:relative; top:50%; left:50%; padding:10px;">
+          <input type="text" name="" value="" placeholder="MAIN" style="float:left;">
+          <input type="text" name="" value="" placeholder="SITE" style="float:left;">
+          <input type="text" name="" value="" placeholder="RELATED 1" style="float:left;">
+          <input type="text" name="" value="" placeholder="RELATED 2" style="float:left;">
+          <input type="text" name="" value="" placeholder="RELATED 3" style="float:left;">
+          <input type="submit" name="" value="ADD" style="width:200px; height:30px; background:#17a2b8; border:1px solid #17a2b8; margin:10px 354px; color:#ffffff;">
+        </form>
+        <form class="" action="#" method="post" style="margin-left:-455px; margin-top:0px; width:930px; height:auto; background:#dee2e6; position:relative; top:50%; left:50%; text-align:center; padding:10px;">
+          <p>Want to upload ASIN in batch? Upload CSV file here-</p>
+          <input type="file" id="asin_csv_file">
+          <input type="submit" name="" value="Add CSV">
+        </form>
+        <span id="add_asin_modal_close_button" style="position:absolute; top:0px; right:20px; color:#ffffff; font-weight:bold; font-size:32px; cursor:pointer;">X</span>
+      </div>
 
 
     </div>
@@ -112,5 +164,45 @@
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script type="text/javascript">
+  $(document).ready(function(){
+
+      // Show the add_asin_modal popup when click on add button
+      $("#add_asin_modal_activation_button_one").click(function(){
+        $("#add_asin_modal").show();
+      });
+      $("#add_asin_modal_activation_button_two").click(function(){
+        $("#add_asin_modal").show();
+      });
+      $("#add_asin_modal_activation_button_three").click(function(){
+        $("#add_asin_modal").show();
+      });
+
+      // Hide the add_asin_modal by clicking on the "X" button
+      $("#add_asin_modal_close_button").click(function(){
+        $("#add_asin_modal").hide();
+      })
+
+      // Delete the related asin when click on the "X" button in each asin
+      $("#delete_asin_button_one").click(function(){
+        $(this).parent().hide();
+        parent_class = $(this).parent().prop('className')
+        $("."+ parent_class).hide()
+        // $(td.parent_class).hide()
+      })
+      $("#delete_asin_button_two").click(function(){
+        $(this).parent().hide();
+        parent_class = $(this).parent().prop('className')
+        $("."+ parent_class).hide()
+        // $(td.parent_class).hide()
+      })
+      $("#delete_asin_button_three").click(function(){
+        $(this).parent().hide();
+        parent_class = $(this).parent().prop('className')
+        $("."+ parent_class).hide()
+        // $(td.parent_class).hide()
+      })
+    });
+  </script>
   </body>
 </html>
