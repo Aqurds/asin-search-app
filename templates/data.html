@@ -7,9 +7,10 @@
   <body>
     <div class="">
       <p>
-        {% for item in dataresult %}
-          {{ item }}
-          {{ item['asin'] }}
+        {% for item in main_asin %}
+          {% for line in item %}
+            <p>{{ line['asin'] }}</p>
+          {% endfor %}
         {% endfor %}
       </p>
     </div>

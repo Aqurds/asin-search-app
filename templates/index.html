@@ -7,12 +7,22 @@
   </head>
   <body>
     <div class="container">
+
+      <!-- Alert message div -->
+      <div class="">
+        {% if message %}
+          <p style="width:100%; height:30px; line-height:30px; font-size:18px; color:red; text-align:center;">{{ message }}</p>
+        {% endif %}
+      </div>
+      <!-- End of alert message div -->
+
+      
       <!-- Search box and utility buttons div -->
       <div class="" style="overflow:hidden; margin-top:150px; ">
         <!-- Search form div -->
         <div class="" style="width:400px; margin:0 auto;">
-          <form class="form-inline" action="{{url_for('display')}}">
-            <input class="form-control mr-sm-2" type="search" style="height:50px; width:300px;" placeholder="Search ASIN" autocomplete="off" aria-label="Search">
+          <form class="form-inline" action="{{url_for('display')}}" method="post">
+            <input class="form-control mr-sm-2" type="text" maxlength="10" name="asin_search_from_home_page" style="height:50px; width:300px;" placeholder="Search ASIN" autocomplete="off" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" style="height:50px;" type="submit">Search</button>
           </form>
         </div>
