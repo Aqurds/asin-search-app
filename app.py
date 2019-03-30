@@ -8,7 +8,7 @@ import pymongo
 import urllib
 
 
-mongo = pymongo.MongoClient('mongodb+srv://dbaqurds:' + urllib.parse.quote_plus('2252010baby@') + '@aqurds-ylkvj.mongodb.net/test?retryWrites=true', maxPoolSize=50, connect=False)
+mongo = pymongo.MongoClient('mongodb+srv://dbaqurds:' + urllib.parse.quote_plus('2252010baby@') + '@aqurds-ylkvj.mongodb.net/test?retryWrites=true', connectTimeoutMS=30000, socketTimeoutMS=None, socketKeepAlive=True, maxPoolSize=1, connect=False)
 db = pymongo.database.Database(mongo, 'dbqaurds')
 
 app = Flask(__name__)
