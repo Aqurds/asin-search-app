@@ -8,7 +8,7 @@ import pymongo
 import urllib
 
 
-mongo = pymongo.MongoClient('mongodb+srv://dbaqurds:' + urllib.parse.quote_plus('2252010baby@') + '@aqurds-ylkvj.mongodb.net/test?retryWrites=true', maxPoolSize=50, connect=False)
+mongo = pymongo.MongoClient('mongodb+srv://dbaqurds:' + urllib.parse.quote_plus('2252010baby@') + '@aqurds-ylkvj.mongodb.net/test?retryWrites=true', maxPoolSize=50, connect=False, connectTimeoutMS=30000, socketTimeoutMS=None, socketKeepAlive=True)
 db = pymongo.database.Database(mongo, 'dbqaurds')
 
 app = Flask(__name__)
@@ -75,6 +75,58 @@ def display():
                 message = "Please, fill the search box with a valid ASIN!"
                 return redirect(url_for('display', message = message))
 
+         # search query for asin comes from add box related asin add box
+        if "main_asin_add_form_one" in request.args:
+             main_asin = request.args['main_asin_add_form_one']
+             if "re_asin_one_add_form_one" in request.args:
+                 re_asin_one = request.args['re_asin_one_add_form_one']
+             if "re_asin_two_add_form_one" in request.args:
+                 re_asin_two = request.args['re_asin_two_add_form_one']
+             if "re_asin_three_add_form_one" in request.args:
+                 re_asin_three = request.args['re_asin_three_add_form_one']
+             col = pymongo.collection.Collection(db, 'asin_scraped_result')
+             main_asin_result = list(col.find({'asin': main_asin})).pop(0)
+             re_asin_one_result = list(col.find({'asin': re_asin_one})).pop(0)
+             if re_asin_two:
+                 re_asin_two_result = list(col.find({'asin': re_asin_two})).pop(0)
+             if re_asin_three:
+                 re_asin_three_result = list(col.find({'asin': re_asin_three})).pop(0)
+
+        # search query for asin comes from edit box
+        if "main_asin_from_edit_box_one" in request.args:
+            main_asin = request.args['main_asin_from_edit_box_one']
+            if "re_asin_one_from_edit_box_one" in request.args:
+                re_asin_one = request.args['re_asin_one_from_edit_box_one']
+            if "re_asin_two_from_edit_box_one" in request.args:
+                re_asin_two = request.args['re_asin_two_from_edit_box_one']
+            if "re_asin_three_from_edit_box_one" in request.args:
+                re_asin_three = request.args['re_asin_three_from_edit_box_one']
+            col = pymongo.collection.Collection(db, 'asin_scraped_result')
+            main_asin_result = list(col.find({'asin': main_asin})).pop(0)
+            re_asin_one_result = list(col.find({'asin': re_asin_one})).pop(0)
+            if re_asin_two:
+                re_asin_two_result = list(col.find({'asin': re_asin_two})).pop(0)
+            if re_asin_three:
+                re_asin_three_result = list(col.find({'asin': re_asin_three})).pop(0)
+
+
+
+         # # search query for asin comes from add box related asin add box
+         # if "main_asin_add_form_one" in request.args:
+         #     main_asin = request.args['main_asin_add_form_one']
+         #     if "re_asin_one_add_form_one" in request.args:
+         #         re_asin_one = request.args['re_asin_one_add_form_one']
+         #     if "re_asin_two_add_form_one" in request.args:
+         #         re_asin_two = request.args['re_asin_two_add_form_one']
+         #     if "re_asin_three_add_form_one" in request.args:
+         #         re_asin_three = request.args['re_asin_three_add_form_one']
+         #     col = pymongo.collection.Collection(db, 'asin_scraped_result')
+         #     main_asin_result = list(col.find({'asin': main_asin})).pop(0)
+         #     re_asin_one_result = list(col.find({'asin': re_asin_one})).pop(0)
+         #     if re_asin_two:
+         #         re_asin_two_result = list(col.find({'asin': re_asin_two})).pop(0)
+         #     if re_asin_three:
+         #         re_asin_three_result = list(col.find({'asin': re_asin_three})).pop(0)
 
 
     if request.method == 'POST':
