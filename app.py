@@ -8,8 +8,8 @@ import pymongo
 import urllib
 
 
-mongo = pymongo.MongoClient('mongodb+srv://dbaqurds:' + urllib.parse.quote_plus('2252010baby@') + '@aqurds-ylkvj.mongodb.net/test?retryWrites=true', connectTimeoutMS=30000, socketTimeoutMS=None, socketKeepAlive=True, maxPoolSize=1, connect=False)
-db = pymongo.database.Database(mongo, 'dbqaurds')
+mongo = pymongo.MongoClient('mongodb+srv://<username>:' + urllib.parse.quote_plus('<password>') + '@aqurds-ylkvj.mongodb.net/test?retryWrites=true', connectTimeoutMS=30000, socketTimeoutMS=None, socketKeepAlive=True, maxPoolSize=1, connect=False)
+db = pymongo.database.Database(mongo, '<dbname>')
 
 app = Flask(__name__)
 
